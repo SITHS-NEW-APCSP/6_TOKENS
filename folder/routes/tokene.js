@@ -27,7 +27,7 @@ router.get('', (req, res) => {
     username: 'theFella',
     level: 12,
     moneys: 245
-});
+  });
   console.log('bruh');
   console.log(token);
   res.json(token);
