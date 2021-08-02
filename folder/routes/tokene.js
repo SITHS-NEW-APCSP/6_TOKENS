@@ -17,13 +17,17 @@ const secret = process.env.TOKEN_SECRET;
 
 console.log(process.env.TOKEN_SECRET);
 
-function tokenGen(name){
-  return web.sign(name,secret, {expiresIn:'600s'})
+function tokenGen(payload){
+  return web.sign(payload,secret, {expiresIn:'600s'})
 }
 
 router.get('', (req, res) => {
   
-  const token = tokenGen({ username: 'theFella' });
+  const token = tokenGen({ 
+    username: 'theFella',
+    level: 12,
+    moneys: 245
+});
   console.log('bruh');
   console.log(token);
   res.json(token);
